@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { routes, links } from './components/pages/__init__'
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <header>
+          <nav>
+            {/* page links */}
+            <ul>
+              {
+                links.map(
+                  (link, i) => <li key={i}><Link to={link.to}>{link.text}</Link></li>
+                )
+              }
+            </ul>
+          </nav>
+        </header>
+        {/* app page routes */}
+        {
+          routes.map((route, i) => <Route exact {...route} key={i} />)
+        }
+      </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+
+/*
+  David Placca
+  Codetrain Gen 14
+  React - Routing
+*/
