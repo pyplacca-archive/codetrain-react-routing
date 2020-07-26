@@ -5,50 +5,31 @@ import Contacts from './contacts'
 import Services from './services'
 
 
-const routes = [
-	{
-		component: Home,
+const routes = {
+	'Home': {
 		path: '/',
+		component: Home
 	},
-	{
-		component: About,
+
+	'About': {
 		path: '/about-us',
+		component: About
 	},
-	{
-		component: Contacts,
+
+	'Contacts': {
 		path: '/contacts',
+		component: Contacts
 	},
-	{
-		component: Portfolio,
+
+	'Portfolio': {
 		path: '/portfolio',
+		component: Portfolio
 	},
-	{
-		component: Services,
+
+	'Services': {
 		path: '/services',
-	},
-]
+		component: Services
+	}
+}
 
-const links = [
-	{
-		text: 'Home',
-		to: '/',
-	},
-	{
-		text: 'About Us',
-		to: '/about-us',
-	},
-	{
-		text: 'Portfolio',
-		to: '/portfolio',
-	},
-	{
-		text: 'Contacts',
-		to: '/contacts',
-	},
-	{
-		text: 'Services',
-		to: '/services',
-	},
-]
-
-export { routes, links }
+export { routes }

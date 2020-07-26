@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import { routes, links } from './components/pages/__init__'
+import { routes } from './components/pages/__init__'
 import './App.css';
 
 
 function App() {
+  const route_keys = Object.keys(routes)
   return (
     <div className="App">
       <BrowserRouter>
@@ -13,17 +14,17 @@ function App() {
             {/* page links */}
             <ul>
               {
-                links.map(
-                  (link, i) => <li key={i}><Link to={link.to}>{link.text}</Link></li>
+                route_keys.map(
+                  (key, i) => <li key={i}><Link to={routes[key].path}>{key}</Link></li>
                 )
               }
             </ul>
           </nav>
         </header>
         {/* app page routes */}
-        {
-          routes.map((route, i) => <Route exact {...route} key={i} />)
-        }
+        {route_keys.map(
+          (key, i) => <Route exact {...routes[key]} key={i} />
+        )}
       </BrowserRouter>
     </div>
   );
